@@ -7,13 +7,13 @@ WORKDIR /usr/src/app
 RUN npm install -g --production node-gyp && \
     npm cache clean --force
 COPY package.json .
-RUN /usr/local/bin/npm install --production && \
-    /usr/local/bin/npm install --production redis@0.10.0 talib@1.0.2 tulind@0.8.7 pg && \
-    /usr/local/bin/npm cache clean --force
+RUN npm install --production && \
+    npm install --production redis@0.10.0 talib@1.0.2 tulind@0.8.7 pg && \
+    npm cache clean --force
 WORKDIR exchange
 COPY exchange/package.json .
-RUN /usr/local/bin/npm install --production && \
-    /usr/local/bin/npm cache clean --force
+RUN npm install --production && \
+    npm cache clean --force
 WORKDIR ../
 COPY . /usr/src/app
 RUN chmod +x /usr/src/app/docker-entrypoint.sh \
