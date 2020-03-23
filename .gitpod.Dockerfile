@@ -7,7 +7,11 @@ WORKDIR /usr/src/app
 RUN npm install -g --production node-gyp && \
     npm cache clean --force
 COPY package.json .
-RUN sudo env "PATH=$PATH" bash -c "npm install --production && \
+ENV NODE_VERSION=0.10.0
+RUN sudo env "PATH=$PATH" bash -c ". ~/.nvm/nvm.sh && \
+    nvm install $NODE_VERSION && \
+    nvm alias default $NODE_VERSION && \
+    npm install --production && \
     npm install --production redis@0.10.0 talib@1.0.2 tulind@0.8.7 pg && \
     npm cache clean --force"
 WORKDIR exchange
