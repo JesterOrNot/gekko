@@ -1,5 +1,6 @@
 FROM gitpod/workspace-full
 ENV HOST localhost
+USER root
 ENV PORT 3000
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
