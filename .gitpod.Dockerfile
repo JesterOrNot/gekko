@@ -3,8 +3,8 @@ ENV HOST localhost
 ENV PORT 3000
 RUN sudo mkdir -p /usr/src/app
 WORKDIR /usr/src/app
-RUN sudo npm install -g --production node-gyp && \
-    sudo npm cache clean --force
+RUN npm install -g --production node-gyp && \
+    npm cache clean --force
 COPY package.json .
 RUN sudo npm install --production && \
     sudo npm install --production redis@0.10.0 talib@1.0.2 tulind@0.8.7 pg && \
