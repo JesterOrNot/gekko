@@ -11,8 +11,8 @@ RUN sudo npm install --production && \
     sudo npm cache clean --force
 WORKDIR exchange
 COPY exchange/package.json .
-RUN sudo npm install --production && \
-    sudo npm cache clean --force
+RUN npm install --production && \
+    npm cache clean --force
 WORKDIR ../
 COPY . /usr/src/app
 EXPOSE 3000
