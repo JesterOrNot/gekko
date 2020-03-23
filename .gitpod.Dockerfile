@@ -1,6 +1,6 @@
 FROM gitpod/workspace-full
 USER gitpod
-SHELL [ "/usr/bin/sudo", "/usr/bin/env", "PATH=$PATH", "/bin/bash", "-cl" ]
+SHELL [ "/usr/bin/sudo", "/usr/bin/env", "\"PATH=$PATH\"", "/bin/bash", "-cl" ]
 ENV HOST localhost
 ENV PORT 3000
 RUN sudo mkdir -p /usr/src/app
